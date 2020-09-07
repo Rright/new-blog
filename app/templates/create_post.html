@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Расскажи свою историю!</h1>
+
+ <form method="post" enctype=multipart/form-data>
+    <h6>
+    <input name="title" type="text" placeholder="Заголовок" required maxlength="150">
+    <textarea placeholder="Текст" name="text" cols="30" rows="10" required></textarea>
+    <span>Добавить картинку</span>
+    <input type="file" name="image">
+    <button type="submit">Поделиться</button>
+    </h6>
+</form>
+
+{% endblock %}

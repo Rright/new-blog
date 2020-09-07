@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Обо всём понемногу</h1>
+
+{% if posts %}
+    {% for post in posts %}
+        <div class="post">
+            <h3>{{ post.title }}</h3>
+            {% if post.image %}
+            <img src="{{ url_for('static', filename='images/'+post.image) }}" alt="Post image">
+            {% endif %}
+            <p>{{ post.text }}</p>
+            <span class="post_date">{{ post.string_created_on }}</span>
+            <a class="delete" href="{{ url_for('delete_post', id=post.id)}}">delete</a>
+        </div>
+    {% endfor %}
+{% else %}
+  <h5>Пока что тут пусто...</h5>
+{% endif %}
+
+{% endblock %}
